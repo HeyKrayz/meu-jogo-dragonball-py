@@ -1,0 +1,51 @@
+import random
+from colorama import init, Fore, Style
+
+init()
+
+#krayz ball z V1
+print ('rpg de texto (digite help para ver comandos)')
+nicknameuser = input ('bote seu nick: ')
+
+vida_player = 30
+vida_raditz = 50
+vida_nappa = 25
+vida_vegeta = 100
+vida_kuririn = 20
+
+
+print ('--------------------------------------------')
+print (Fore.YELLOW + 'raditz esta atacando a terra tente para-lo!!!'+ Style.RESET_ALL)
+print (Fore.RED + f'HP {vida_player} do {nicknameuser}')
+print (Fore.RED + f'HP {vida_raditz} do raditz' + Style.RESET_ALL)
+print ('--------------------------------------------')
+
+while True:
+    davyjones = input (f'{nicknameuser}: ')
+    if davyjones.lower() == 'help':
+        print ('os camandos disponiveis sao: ataque, sair')
+    elif davyjones.lower() == 'ataque':
+        ataques_player = random.randint (3, 10)
+        vida_raditz -= ataques_player
+        ataques_raditz = random.randint (2, 5)
+        vida_player -= ataques_raditz
+
+        print ('--------------------------------------------')
+        print (f'vc usou um ataque! raditz esta com {vida_raditz} de hp')
+        print (f'raditz contratacou seu HP {vida_player}')
+        print ('--------------------------------------------')
+
+    if vida_raditz <= 0:
+        print (f'parabens {nicknameuser} vc acabou de derrotar o raditz e salvando a terra')
+        break
+    elif  vida_player <= 0:
+        print (Fore.RED + 'game over...')
+        break
+    elif davyjones.lower() == 'sair':
+        print ('nao aguentou e correu')
+
+print ('--------------------------------------------')
+print (Fore.YELLOW + f'apos um ano vegeta e nappa vao a terra e derrotam metade dos guerreiros Z, mas {nicknameuser} chega a ate o local para derrota-los' + Style.RESET_ALL)
+print ('--------------------------------------------')
+print (Fore.RED +  f'time inimigo: nappa HP {vida_nappa}   vegeta HP {vida_vegeta}')
+print (Fore.RED + f'guerreiros Z: kuririn HP {vida_kuririn}   {nicknameuser} HP {vida_player}' + Style.RESET_ALL)
